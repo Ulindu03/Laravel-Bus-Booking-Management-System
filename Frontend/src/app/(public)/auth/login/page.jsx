@@ -38,10 +38,42 @@ export default function Login ()  {
     } ;
 
     return (
-        <div classname ="min-h-screen flex items-center justify-center bg-gray-100">
-            <div classname = "w-full max-w-md bg-white p-8 rounded shadow">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+            <div className="w-full max-w-md bg-white p-8 rounded shadow">
 
-            <h1 classname ="text-2xl font-bold mb-6 text-center">Login</h1>
+            <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+
+            {error && <p className="text-red-500 mb-4">{error}</p>}
+
+            <div className="space-y-4">
+                <input type="email"
+                 placeholder="Email"  
+                 className="w-full px-3 py-2 border rounded"
+                 value ={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                            
+                />
+                <input type="password"
+                 placeholder="Password"  
+                 className="w-full px-3 py-2 border rounded"
+                 value ={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
+                <button onClick={handeLogin} 
+                disabled={loading}
+                className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
+                >
+                    {loading ? 'Logging in...' : 'Login'}
+                </button>
+            </div>
+
+            <div className="mt-4 text-center">
+                <p className="text-sm">
+                    Don&apos;t have an account? 
+                    <a href="/auth/register" className="text-blue-500 hover:underline ml-1">Register here</a>
+                </p>
+            </div>
+
         </div>  
         </div>
     );
