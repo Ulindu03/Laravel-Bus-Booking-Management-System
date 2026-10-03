@@ -1,0 +1,292 @@
+.dashboardPage {
+    min-height: calc(100vh - 80px);
+    background: #f8fafc;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 280px;
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+}
+
+.userInfo {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+.userInfo h3 {
+    margin: 0 0 0.25rem 0;
+    color: #0f172a;
+    font-size: 1.25rem;
+}
+
+.userInfo p {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.navMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.navItem {
+    background: transparent;
+    border: none;
+    padding: 0.875rem 1rem;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #475569;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.navItem:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.navItem.active {
+    background: #eff6ff;
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+.mainContent {
+    flex: 1;
+}
+
+.pageTitle {
+    margin: 0 0 2rem 0;
+    color: #0f172a;
+    font-size: 2rem;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    font-size: 1.25rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.emptyState {
+    background: white;
+    border-radius: 16px;
+    padding: 4rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: grayscale(1) opacity(0.5);
+}
+
+.emptyState h2 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.emptyState p {
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+.searchBtn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.searchBtn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.bookingList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.bookingCard {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.refInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.refLabel {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.refValue {
+    font-weight: 700;
+    color: #0f172a;
+    font-family: monospace;
+    background: #f1f5f9;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.statusBadge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.statusBadge.pending { background: #fef3c7; color: #d97706; }
+.statusBadge.confirmed { background: #d1fae5; color: #059669; }
+.statusBadge.completed { background: #e0e7ff; color: #4338ca; }
+.statusBadge.cancelled { background: #fee2e2; color: #dc2626; }
+.statusBadge.expired { background: #f1f5f9; color: #64748b; }
+
+.tripInfo {
+    margin-bottom: 1.5rem;
+}
+
+.route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.cityBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cityBlock:last-child {
+    text-align: right;
+}
+
+.cityTime {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.cityName {
+    font-weight: 600;
+    color: #475569;
+}
+
+.cityDate {
+    font-size: 0.875rem;
+    color: #94a3b8;
+}
+
+.routeArrow {
+    color: #cbd5e1;
+    font-size: 1.5rem;
+}
+
+.busDetails {
+    display: flex;
+    justify-content: space-between;
+    color: #475569;
+    font-weight: 500;
+    padding: 0 0.5rem;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.5rem;
+}
+
+.amount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #10b981;
+}
+
+.cancelBtn {
+    background: white;
+    color: #ef4444;
+    border: 1px solid #fca5a5;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cancelBtn:hover {
+    background: #fee2e2;
+    border-color: #ef4444;
+}
+
+@media (max-width: 768px) {
+    .dashboardPage {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+    }
+}

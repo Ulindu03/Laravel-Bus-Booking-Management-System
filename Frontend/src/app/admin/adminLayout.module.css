@@ -1,0 +1,115 @@
+.adminRoot {
+  display: flex;
+  min-height: 100vh;
+  background: #060a14;
+}
+
+.mainArea {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mainExpanded {
+}
+
+.content {
+  flex: 1;
+  padding: 28px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Loading Screen */
+.loadingScreen {
+  min-height: 100vh;
+  background: #060a14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingSpinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.spinnerRing {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #06b6d4;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+/* Access Denied */
+.accessDenied {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.deniedIcon {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.accessDenied h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.accessDenied p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.homeLink {
+  display: inline-flex;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: all 0.2s;
+}
+
+.homeLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mainArea {
+    margin-left: 0;
+  }
+  .content {
+    padding: 16px;
+  }
+}

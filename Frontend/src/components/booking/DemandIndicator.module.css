@@ -1,0 +1,156 @@
+/* ============================================
+   DemandIndicator — Demand level badges
+   Color-coded: High (red/orange), Medium (yellow), Low (green)
+   ============================================ */
+
+/* Full Indicator */
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid;
+    transition: all 0.3s ease;
+}
+
+.indicator.high {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.indicator.medium {
+    background: rgba(245, 158, 11, 0.08);
+    border-color: rgba(245, 158, 11, 0.2);
+}
+
+.indicator.low {
+    background: rgba(34, 197, 94, 0.08);
+    border-color: rgba(34, 197, 94, 0.2);
+}
+
+/* Icon */
+.iconWrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    font-size: 1.3rem;
+    z-index: 1;
+}
+
+.pulseRing {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    animation: demandPulse 2s ease-out infinite;
+}
+
+.high .pulseRing {
+    background: rgba(239, 68, 68, 0.15);
+}
+
+.medium .pulseRing {
+    background: rgba(245, 158, 11, 0.1);
+    animation-duration: 3s;
+}
+
+.low .pulseRing {
+    display: none;
+}
+
+@keyframes demandPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Info */
+.info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.high .label { color: #f87171; }
+.medium .label { color: #fbbf24; }
+.low .label { color: #4ade80; }
+
+.description {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+}
+
+/* Seat Count */
+.seatCount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.seatNumber {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.high .seatNumber { color: #f87171; }
+.medium .seatNumber { color: #fbbf24; }
+.low .seatNumber { color: #4ade80; }
+
+.seatLabel {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* Compact Badge — used in search results */
+.compactBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.compactBadge.high {
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+}
+
+.compactBadge.medium {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+}
+
+.compactBadge.low {
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+}
+
+.compactDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.high .compactDot { background: #ef4444; }
+.medium .compactDot { background: #f59e0b; }
+.low .compactDot { background: #22c55e; }

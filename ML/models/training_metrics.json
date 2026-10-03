@@ -1,0 +1,58 @@
+{
+  "training_date": "2026-07-14 22:58:52",
+  "training_samples": 6331,
+  "testing_samples": 1583,
+  "best_model": "XGBoost",
+  "xgboost": {
+    "model": "XGBoost",
+    "mae": 0.2134,
+    "rmse": 0.3731,
+    "r2_score": 0.0148,
+    "mape_percent": 15.77
+  },
+  "random_forest": {
+    "model": "Random Forest",
+    "mae": 0.2148,
+    "rmse": 0.3704,
+    "r2_score": 0.029,
+    "mape_percent": 15.93
+  },
+  "feature_importance": [
+    {
+      "feature": "historical_avg_demand",
+      "importance": 0.17338572442531586
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 0.15153156220912933
+    },
+    {
+      "feature": "bus_type_encoded",
+      "importance": 0.12241268157958984
+    },
+    {
+      "feature": "hour_of_day",
+      "importance": 0.11874851584434509
+    },
+    {
+      "feature": "boarding_stop_index",
+      "importance": 0.09727711975574493
+    },
+    {
+      "feature": "day_of_week",
+      "importance": 0.09379926323890686
+    },
+    {
+      "feature": "is_month_end",
+      "importance": 0.08754928410053253
+    },
+    {
+      "feature": "route_id",
+      "importance": 0.0827014371752739
+    },
+    {
+      "feature": "is_holiday",
+      "importance": 0.07259441912174225
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon */
+.iconWrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconGlow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 20px;
+  opacity: 0.15;
+  filter: blur(12px);
+  transition: opacity 0.3s;
+}
+
+.card:hover .iconGlow {
+  opacity: 0.25;
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.icon svg {
+  font-size: 26px;
+}
+
+/* Gradient variants */
+.gradientCyan {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+.gradientCyan .iconGlow { background: #06b6d4; }
+
+.gradientPurple {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+.gradientPurple .iconGlow { background: #8b5cf6; }
+
+.gradientGreen {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+.gradientGreen .iconGlow { background: #10b981; }
+
+.gradientOrange {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+.gradientOrange .iconGlow { background: #f59e0b; }
+
+.gradientPink {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+}
+.gradientPink .iconGlow { background: #ec4899; }
+
+.gradientBlue {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+.gradientBlue .iconGlow { background: #3b82f6; }
+
+/* Content */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.trend {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.trend svg {
+  font-size: 14px !important;
+}
+
+.trendUp {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.trendDown {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+}
+
+/* Background Glow */
+.bgGlow {
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  opacity: 0.04;
+  filter: blur(40px);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.card:hover .bgGlow {
+  opacity: 0.08;
+}

@@ -1,0 +1,390 @@
+.searchPage {
+    min-height: calc(100vh - 80px);
+    background: #080e1e; /* Deep dark elegant background */
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+}
+
+.header {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle glowing orb effect behind the header */
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.header h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 0 0 0.75rem 0;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    position: relative;
+    z-index: 1;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+.resultsContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    font-size: 1.25rem;
+    color: #06b6d4;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.errorContainer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.errorContainer p {
+    color: #f87171;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.backBtn {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    border: none;
+    padding: 0.85rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.backBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.noResults {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+}
+
+.noResultsIcon {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+}
+
+.noResults h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.noResults p {
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2.5rem;
+}
+
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.scheduleCard {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    align-items: center;
+    gap: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.scheduleCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(6, 182, 212, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.busInfo h3 {
+    margin: 0 0 0.75rem 0;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.busType {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #93c5fd;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.busNumber {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.875rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.timeInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.timeBlock {
+    text-align: center;
+}
+
+.time {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.city {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.durationLine {
+    flex: 1;
+    margin: 0 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.line {
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.line::before, .line::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #06b6d4;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px #06b6d4;
+}
+
+.line::before { left: 0; }
+.line::after { right: 0; }
+
+.durationText {
+    position: relative;
+    z-index: 2;
+    background: #12192b; /* Match card apparent bg */
+    padding: 0 0.75rem;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.priceBook {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.25rem;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    padding-left: 2rem;
+}
+
+.priceBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.seatsAvailable {
+    color: #10b981;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.seatsAvailable::before {
+    content: '';
+    display: block;
+    width: 6px; height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.bookBtn {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bookBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+    background: linear-gradient(135deg, #22d3ee 0%, #60a5fa 100%);
+}
+
+.bookBtn:disabled {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.3);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .scheduleCard {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .priceBook {
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-left: 0;
+        padding-top: 1.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .bookBtn {
+        width: auto;
+    }
+}
+
+/* Skeleton Loading Animation */
+.skeletonCard {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+    animation: skeletonPulse 1.8s ease-in-out infinite;
+}
+
+.skeletonLine {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.04) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.04) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.5s ease-in-out infinite;
+    border-radius: 6px;
+    min-height: 14px;
+}
+
+.skeletonRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+@keyframes skeletonShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes skeletonPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}

@@ -1,0 +1,24 @@
+# =============================================================================
+# Serendib Go — ML Module Dependencies
+# =============================================================================
+# Install කරන්න: pip install -r requirements.txt
+# මේ libraries ඔක්කොම free & open source. Cloud API ඕන නෑ.
+# =============================================================================
+
+# ML Training & Prediction
+scikit-learn>=1.5.0      # K-Means clustering, Random Forest, metrics
+xgboost>=2.0.0           # Gradient Boosted Trees — demand prediction model
+
+# Data Processing
+pandas>=2.2.0            # Data manipulation, CSV read/write
+numpy>=1.26.0            # Numerical computations
+
+# Database Connection
+mysql-connector-python>=8.0.0   # MySQL database එකට connect වෙන්න
+
+# Visualization & Reports
+matplotlib>=3.8.0        # Charts, graphs — model evaluation reports
+seaborn>=0.13.0          # Better looking charts (optional)
+
+# Utilities
+joblib>=1.3.0            # Model save/load (pickle alternative)

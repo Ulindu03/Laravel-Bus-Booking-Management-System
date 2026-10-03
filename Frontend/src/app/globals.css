@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #080e1e;
+    color-scheme: dark !important;
+}
+
+/* Global dark theme for all native form elements */
+select,
+select option {
+    background-color: #1a2236 !important;
+    color: #fff !important;
+}
+
+select option:checked {
+    background-color: #0e7490 !important;
+    color: #fff !important;
+}
+
+/* Force dark color scheme on root */
+:root {
+    color-scheme: dark !important;
+}

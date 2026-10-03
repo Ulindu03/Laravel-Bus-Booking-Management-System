@@ -1,0 +1,635 @@
+.bookPage {
+    min-height: 100vh;
+    background: #080e1e;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4, #8b5cf6);
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 0 1.5rem 0;
+    background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.tripDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.route {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #38bdf8;
+    text-transform: capitalize;
+}
+
+.arrow {
+    color: rgba(255,255,255,0.3);
+    font-size: 1.2rem;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.seatSelection, .bookingSidebar {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.seatSelection h2, .bookingSidebar h2 {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.25rem;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+}
+
+.passengerForms {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.passengerCard {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.passengerCard:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.cardHeader {
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.seatBadge {
+    background: linear-gradient(135deg, #06b6d4, #3b82f6);
+    color: white;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(6, 182, 212, 0.3);
+}
+
+.inputGroup {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.inputGroup:last-child {
+    margin-bottom: 0;
+}
+
+.inputGroup label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.inputGroup input {
+    padding: 0.85rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.inputGroup input::placeholder {
+    color: rgba(255,255,255,0.2);
+}
+
+.inputGroup input:focus {
+    border-color: rgba(6, 182, 212, 0.5);
+    background: rgba(6, 182, 212, 0.05);
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.summaryCard {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.summaryCard h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.35rem;
+    color: #fff;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.05rem;
+}
+
+.totalPrice {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #10b981;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.submitBtn {
+    width: 100%;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+    padding: 1.1rem;
+    border-radius: 12px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(6, 182, 212, 0.4);
+    background: linear-gradient(135deg, #22d3ee 0%, #60a5fa 100%);
+}
+
+.submitBtn:disabled {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.3);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+@media (max-width: 992px) {
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Login Prompt Modal */
+.loginPromptOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.loginPromptModal {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease;
+}
+
+.loginPromptIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.loginPromptTitle {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+}
+
+.loginPromptText {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 2rem 0;
+}
+
+.loginPromptActions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.loginPromptBtn {
+    width: 100%;
+    padding: 0.95rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(6, 182, 212, 0.3);
+}
+
+.loginPromptBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+}
+
+.loginPromptBtnSecondary {
+    width: 100%;
+    padding: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.loginPromptBtnSecondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+.loginPromptClose {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.loginPromptClose:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Guest Notice */
+.guestNotice {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1rem;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 10px;
+    color: #fbbf24;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+}
+
+/* Segment Booking Badge */
+.segmentBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 8px;
+    color: #a78bfa;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Inline Success Card in Sidebar */
+.inlineSuccessCard {
+    background: linear-gradient(145deg, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 20px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+    text-align: center;
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.inlineSuccessHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: #34d399;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.inlineSuccessSub {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Custom Elegant Success Modal */
+.modalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(4, 9, 20, 0.85);
+    backdrop-filter: blur(16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1.5rem;
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.successModalCard {
+    background: linear-gradient(145deg, #0e172a 0%, #091122 100%);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    box-shadow: 0 25px 60px -15px rgba(16, 185, 129, 0.25), 0 0 40px rgba(6, 182, 212, 0.15);
+    border-radius: 28px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.successModalCard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #10b981, #06b6d4, #8b5cf6);
+}
+
+.successBadgeWrapper {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1.25rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+    border: 2px solid rgba(16, 185, 129, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    animation: bounceIn 0.5s ease-out;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.successModalTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+    background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.successModalSub {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.refPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px dashed rgba(16, 185, 129, 0.4);
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 1.75rem;
+}
+
+.refLabel {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+}
+
+.refCode {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #34d399;
+    letter-spacing: 1px;
+}
+
+.ticketSummaryGrid {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.ticketRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.ticketRowLabel {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.ticketRowValue {
+    color: #fff;
+    font-weight: 600;
+}
+
+.emailHighlight {
+    color: #38bdf8;
+    word-break: break-all;
+}
+
+.modalActionBtns {
+    display: flex;
+    gap: 1rem;
+}
+
+.modalPrimaryBtn {
+    flex: 1;
+    padding: 0.95rem;
+    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    border: none;
+    border-radius: 14px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+    transition: all 0.2s;
+}
+
+.modalPrimaryBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(16, 185, 129, 0.5);
+}
+
+.modalSecondaryBtn {
+    flex: 1;
+    padding: 0.95rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modalSecondaryBtn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+/* Inline form error banner */
+.formErrorBanner {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+

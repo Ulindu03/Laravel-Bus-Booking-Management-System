@@ -1,0 +1,138 @@
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: #080e1e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s;
+}
+
+.fadeOut {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.scene {
+    position: relative;
+    width: 320px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Layer 1: Backing Spotlight Circle */
+.spotlight {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background: #eef6fc;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden; /* Clips the tree */
+    z-index: 1;
+}
+
+.treeAnim {
+    position: absolute;
+    top: 52px; /* Set so base aligns near the road */
+    right: -40px;
+    animation: passTree 2.2s linear infinite;
+}
+
+@keyframes passTree {
+    0% { transform: translateX(40px); }
+    100% { transform: translateX(-180px); }
+}
+
+/* Layer 2: Global Road Line */
+.roadLine {
+    position: absolute;
+    left: 40px; 
+    right: 40px;
+    height: 2px;
+    top: 130px; /* Cuts through bottom of spotlight */
+    background: #22a5ff;
+    z-index: 2;
+}
+
+.roadDash {
+    position: absolute;
+    top: 130px;
+    height: 2px;
+    background: #22a5ff;
+    z-index: 2;
+    animation: roadDashAnim 0.8s linear infinite;
+}
+
+.roadDash1 {
+    left: -10px;
+    width: 30px;
+    animation-delay: 0s;
+}
+
+.roadDash2 {
+    left: 300px;
+    width: 40px;
+    animation-delay: 0.4s;
+}
+
+@keyframes roadDashAnim {
+    0% { transform: translateX(340px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(-40px); opacity: 0; }
+}
+
+/* Layer 3: The Bouncing Bus */
+.busWrap {
+    position: absolute;
+    left: 50%;
+    bottom: 35px; /* Wheels hit road at y=45 out of 60 */
+    margin-left: -75px; /* Center svg (150 width / 2) */
+    z-index: 3;
+    animation: busBob 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes busBob {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-3px); }
+}
+
+/* Loading Text underneath */
+.loadingText {
+    margin-top: 40px;
+    color: #f2f6ff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    gap: 2px;
+    align-items: baseline;
+    opacity: 0.9;
+}
+
+.dots span {
+    animation: dotPulse 1.4s infinite;
+    opacity: 0;
+}
+
+.dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}

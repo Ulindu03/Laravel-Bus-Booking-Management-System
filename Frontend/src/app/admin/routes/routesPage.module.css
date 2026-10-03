@@ -1,0 +1,89 @@
+.page { display: flex; flex-direction: column; gap: 20px; min-width: 0; max-width: 100%; }
+.statsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; min-width: 0; }
+@media (max-width: 800px) { .statsGrid { grid-template-columns: 1fr; } }
+
+/* Badges */
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: capitalize; }
+.badge svg { font-size: 14px !important; }
+.badgeActive { color: #10b981; background: rgba(16, 185, 129, 0.12); }
+.badgeInactive { color: #f59e0b; background: rgba(245, 158, 11, 0.12); }
+
+.routePath { color: rgba(255,255,255,0.7); font-weight: 500; }
+.fareText { color: #10b981; font-weight: 600; }
+.stopsCount { color: rgba(255,255,255,0.5); font-size: 12px; }
+
+/* Buttons */
+.addBtn { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); border: none; border-radius: 10px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.addBtn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(6,182,212,0.3); }
+.addBtn svg { font-size: 18px !important; }
+
+.actionBtn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.15s; }
+.actionBtn:hover { background: rgba(6,182,212,0.15); color: #06b6d4; border-color: rgba(6,182,212,0.3); }
+.actionBtn svg { font-size: 16px !important; }
+.deleteBtn:hover { background: rgba(239,68,68,0.15); color: #ef4444; border-color: rgba(239,68,68,0.3); }
+
+/* Alerts */
+.successAlert { padding: 12px 18px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.2); border-radius: 10px; color: #10b981; font-size: 13px; font-weight: 600; animation: slideDown 0.3s ease; }
+.errorAlert { padding: 12px 18px; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.2); border-radius: 10px; color: #ef4444; font-size: 13px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+.errorAlert button { background: none; border: none; color: #ef4444; cursor: pointer; font-size: 18px; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Drawer */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 200; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.drawer { position: fixed; top: 0; right: 0; width: 600px; max-width: 100vw; height: 100vh; background: #111827; border-left: 1px solid rgba(255,255,255,0.08); z-index: 201; display: flex; flex-direction: column; animation: slideIn 0.3s ease; overflow-x: hidden; box-sizing: border-box; }
+@keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+.drawerHeader { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); box-sizing: border-box; }
+.drawerHeader h2 { font-size: 18px; font-weight: 700; color: #fff; margin: 0; }
+.closeBtn { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.15s; box-sizing: border-box; }
+.closeBtn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+.drawerBody { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 24px; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; }
+
+.sectionCard { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.sectionTitle { font-size: 12px; font-weight: 700; color: #06b6d4; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 4px 0; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px;}
+
+.formGroup { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.formGroup label { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; }
+.formGroup input, .formGroup select { padding: 12px 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.2s; box-sizing: border-box; width: 100%; }
+.formGroup input:disabled { opacity: 0.6; cursor: not-allowed; background: rgba(0,0,0,0.2); }
+.formGroup input:focus, .formGroup select:focus { border-color: rgba(6,182,212,0.5); }
+.formGroup input::placeholder { color: rgba(255,255,255,0.25); }
+.formGroup select { cursor: pointer; }
+.formGroup select option { background: #1f2937; color: #fff; }
+
+.formRow { display: flex; gap: 16px; }
+
+/* Stops */
+.stopsSection { display: flex; flex-direction: column; gap: 12px; }
+.stopsHeader { display: flex; align-items: center; justify-content: space-between; }
+.stopsHeader label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; }
+.addStopBtn { display: flex; align-items: center; gap: 4px; background: none; border: none; color: #06b6d4; font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; padding: 6px 10px; border-radius: 6px; transition: background 0.15s; }
+.addStopBtn:hover { background: rgba(6,182,212,0.1); }
+.addStopBtn svg { font-size: 16px !important; }
+
+.stopRow { display: flex; gap: 10px; align-items: center; }
+.stopRow input, .stopRow select { padding: 10px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; color: #fff; font-size: 13px; font-family: inherit; outline: none; flex: 1; }
+.stopRow input:focus, .stopRow select:focus { border-color: rgba(6,182,212,0.4); }
+.stopMins { width: 90px !important; flex: none !important; }
+.removeStopBtn { display: flex; align-items: center; background: none; border: none; color: rgba(239,68,68,0.6); cursor: pointer; padding: 4px; transition: color 0.15s; }
+.removeStopBtn:hover { color: #ef4444; }
+.removeStopBtn svg { font-size: 20px !important; }
+
+.drawerActions { display: flex; gap: 12px; justify-content: flex-end; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: auto; padding-bottom: 90px; }
+.cancelBtn { padding: 12px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+.cancelBtn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.saveBtn { padding: 12px 28px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); border: none; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+.saveBtn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(6,182,212,0.3); }
+.saveBtn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Modal */
+.modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 420px; max-width: 90vw; background: #1f2937; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px; z-index: 201; animation: modalPop 0.2s ease; }
+@keyframes modalPop { from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+.modal h3 { font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+.modal p { font-size: 14px; color: rgba(255,255,255,0.6); margin: 0 0 20px; line-height: 1.5; }
+.modalActions { display: flex; gap: 10px; justify-content: flex-end; }
+.deleteBtnLg { padding: 10px 24px; background: linear-gradient(135deg, #ef4444, #dc2626); border: none; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+.deleteBtnLg:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(239,68,68,0.3); }

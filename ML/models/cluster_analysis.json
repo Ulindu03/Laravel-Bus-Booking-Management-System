@@ -1,0 +1,73 @@
+{
+  "training_date": "2026-07-14 22:59:20",
+  "total_users": 1221,
+  "n_clusters": 4,
+  "silhouette_score": 0.1962,
+  "clusters": {
+    "0": {
+      "name": "Mixed Pattern 1",
+      "count": 335,
+      "percentage": 27.4,
+      "avg_departure_hour": 10.5,
+      "avg_bookings": 5.3,
+      "avg_advance_days": 2.3,
+      "weekend_ratio": 0.17
+    },
+    "1": {
+      "name": "Mixed Pattern 2",
+      "count": 372,
+      "percentage": 30.5,
+      "avg_departure_hour": 11.2,
+      "avg_bookings": 5.4,
+      "avg_advance_days": 4.1,
+      "weekend_ratio": 0.47
+    },
+    "2": {
+      "name": "Mixed Pattern 3",
+      "count": 193,
+      "percentage": 15.8,
+      "avg_departure_hour": 11.6,
+      "avg_bookings": 15.8,
+      "avg_advance_days": 3.1,
+      "weekend_ratio": 0.28
+    },
+    "3": {
+      "name": "Mixed Pattern 4",
+      "count": 321,
+      "percentage": 26.3,
+      "avg_departure_hour": 13.7,
+      "avg_bookings": 5.5,
+      "avg_advance_days": 2.7,
+      "weekend_ratio": 0.2
+    }
+  },
+  "elbow_data": {
+    "k_values": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "inertias": [
+      5098.91,
+      4233.22,
+      3694.74,
+      3327.81,
+      3065.97,
+      2839.28,
+      2683.85
+    ],
+    "silhouette_scores": [
+      0.1613,
+      0.1997,
+      0.1962,
+      0.195,
+      0.195,
+      0.1968,
+      0.1931
+    ]
+  }
+}

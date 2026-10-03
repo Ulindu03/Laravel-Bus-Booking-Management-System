@@ -1,0 +1,1 @@
+["route_id", "boarding_stop_index", "day_of_week", "hour_of_day", "is_weekend", "is_holiday", "is_month_end", "historical_avg_demand", "bus_type_encoded"]

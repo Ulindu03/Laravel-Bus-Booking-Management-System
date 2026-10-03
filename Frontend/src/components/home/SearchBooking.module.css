@@ -1,0 +1,366 @@
+.searchSection {
+    position: relative;
+    padding: 80px clamp(16px, 4vw, 60px);
+    background: #0c1226;
+}
+
+/* Background image */
+.sectionBg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.sectionBg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 80%;
+    filter: brightness(0.3) saturate(1.1);
+}
+
+.sectionOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(180deg,
+            rgba(12, 18, 38, 1) 0%,
+            rgba(12, 18, 38, 0.65) 25%,
+            rgba(18, 26, 53, 0.6) 50%,
+            rgba(12, 18, 38, 0.65) 75%,
+            rgba(12, 18, 38, 1) 100%),
+        radial-gradient(ellipse at 50% 40%,
+            rgba(34, 165, 255, 0.08) 0%,
+            transparent 60%);
+}
+
+/* Ambient glow */
+.searchSection::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(34, 165, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.searchInner {
+    max-width: 900px;
+    margin: 0 auto;
+    perspective: 1200px;
+    position: relative;
+    z-index: 2;
+}
+
+.sectionLabel {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #86deff;
+    text-shadow: 0 2px 12px rgba(34, 165, 255, 0.3);
+}
+
+.sectionHeading {
+    text-align: center;
+    margin: 0 0 40px;
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 800;
+    color: #f2f6ff;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+/* 3D Search Card */
+.searchCard {
+    border-radius: 24px;
+    padding: 36px 40px;
+    background: linear-gradient(145deg, rgba(20, 28, 54, 0.85), rgba(18, 26, 53, 0.7));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    box-shadow:
+        0 20px 60px rgba(4, 8, 22, 0.5),
+        0 4px 16px rgba(4, 8, 22, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+    animation: searchCardIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes searchCardIn {
+    0% {
+        opacity: 0;
+        transform: perspective(1200px) rotateX(8deg) translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(1200px) rotateX(0) translateY(0);
+    }
+}
+
+.searchCard:hover {
+    transform: perspective(1200px) rotateX(-2deg) translateY(-4px);
+    box-shadow:
+        0 30px 80px rgba(4, 8, 22, 0.6),
+        0 8px 24px rgba(34, 165, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Form Row */
+.searchForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 16px;
+    align-items: end;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formGroup label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #86deff;
+}
+
+.formGroup select,
+.formGroup input {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(12, 18, 38, 0.7);
+    color: #f2f6ff;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.formGroup select:focus,
+.formGroup input:focus {
+    border-color: rgba(34, 165, 255, 0.5);
+    box-shadow: 0 0 20px rgba(34, 165, 255, 0.12);
+    background: rgba(12, 18, 38, 0.9);
+}
+
+.formGroup select option {
+    background: #121a35;
+    color: #f2f6ff;
+}
+
+/* Search Button */
+.searchBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 12px;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(135deg, #1a8fe0, #22a5ff);
+    box-shadow:
+        0 6px 24px rgba(34, 165, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+    transform: perspective(400px) translateZ(0);
+    height: fit-content;
+    align-self: end;
+}
+
+.searchBtn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.searchBtn:hover {
+    transform: perspective(400px) translateZ(8px) translateY(-2px);
+    box-shadow:
+        0 12px 36px rgba(34, 165, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.searchBtn:hover::after {
+    transform: translateX(100%);
+}
+
+/* Trust bar */
+.trustBar {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.trustItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a8b3d6;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.trustIcon {
+    font-size: 18px;
+    color: #22a5ff;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .searchSection {
+        padding: 60px clamp(12px, 3vw, 40px);
+    }
+
+    .searchForm {
+        grid-template-columns: 1fr;
+    }
+
+    .searchCard {
+        padding: 28px 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    .searchSection {
+        padding: 44px 16px;
+    }
+
+    .searchCard {
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+
+    .trustBar {
+        gap: 18px;
+    }
+}
+
+/* Searchable Select */
+.searchableSelect {
+    position: relative;
+    width: 100%;
+}
+
+.selectTrigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(12, 18, 38, 0.7);
+    color: #f2f6ff;
+    font-size: 15px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.selectTrigger:hover,
+.selectTrigger.isOpen {
+    border-color: rgba(34, 165, 255, 0.5);
+    background: rgba(12, 18, 38, 0.9);
+    box-shadow: 0 0 20px rgba(34, 165, 255, 0.12);
+}
+
+.placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.chevron {
+    font-size: 12px;
+    color: #86deff;
+    transition: transform 0.3s ease;
+}
+.selectTrigger.isOpen .chevron {
+    transform: rotate(180deg);
+}
+
+.selectDropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #10162a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 8px;
+    z-index: 100;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.formGroup .searchInput {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+    outline: none;
+    box-shadow: none;
+}
+
+.formGroup .searchInput:focus {
+    border-color: rgba(34, 165, 255, 0.4);
+    box-shadow: 0 0 10px rgba(34, 165, 255, 0.1);
+}
+
+.optionsList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.optionsList::-webkit-scrollbar {
+    width: 6px;
+}
+.optionsList::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+}
+
+.optionItem {
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #d1d5db;
+    transition: background 0.2s;
+}
+.optionItem:hover, .optionItem.selected {
+    background: rgba(34, 165, 255, 0.15);
+    color: #fff;
+}
+
+.noResults {
+    padding: 10px;
+    color: #888;
+    text-align: center;
+    font-size: 13px;
+}

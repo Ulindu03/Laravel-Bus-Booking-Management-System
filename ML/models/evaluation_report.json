@@ -1,0 +1,35 @@
+{
+  "evaluation_date": "2026-07-20 19:50:01",
+  "test_samples": 1583,
+  "demand_prediction": {
+    "xgboost": {
+      "mae": 0.2134,
+      "rmse": 0.3731,
+      "r2": 0.0148,
+      "mape": 15.77
+    },
+    "random_forest": {
+      "mae": 0.2148,
+      "rmse": 0.3704,
+      "r2": 0.029,
+      "mape": 15.93
+    },
+    "targets_met": {
+      "mae_under_3": true,
+      "rmse_under_4": true,
+      "r2_over_075": false,
+      "mape_under_20": true
+    }
+  },
+  "clustering": {
+    "n_clusters": 4,
+    "silhouette_score": 0.19620155574568862,
+    "cluster_names": {
+      "0": "Mixed Pattern 1",
+      "1": "Mixed Pattern 2",
+      "2": "Mixed Pattern 3",
+      "3": "Mixed Pattern 4"
+    }
+  },
+  "charts_generated": true
+}
