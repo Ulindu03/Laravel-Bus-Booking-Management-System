@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import scheduleService from '@/app/api/scheduleService';
 import busService from '@/app/api/busService';
 import routeService from '@/app/api/routeService';
+import CalendarDatePicker from '@/components/ui/CalendarDatePicker';
 import styles from './createSchedule.module.css';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -91,6 +92,10 @@ const CreateSchedulePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.departure_date || !formData.arrival_date || formData.arrival_date < formData.departure_date) {
+      setError('Select valid departure and arrival dates');
+      return;
+    }
     try {
       setLoading(true);
       setError('');
@@ -243,12 +248,12 @@ const CreateSchedulePage = () => {
             </div>
             <div className={styles.cardBody}>
               <div className={styles.formGroup}>
-                <label>Departure Date <span className={styles.required}>*</span></label>
-                <input
-                  type="date"
+                <label htmlFor="departure-date">Departure Date <span className={styles.required}>*</span></label>
+                <CalendarDatePicker
+                  id="departure-date"
+                  label="Departure date"
                   value={formData.departure_date}
-                  onChange={e => setFormData({ ...formData, departure_date: e.target.value, arrival_date: formData.arrival_date || e.target.value })}
-                  required
+                  onChange={value => setFormData(prev => ({ ...prev, departure_date: value, arrival_date: !prev.arrival_date || prev.arrival_date < value ? value : prev.arrival_date }))}
                 />
               </div>
               <div className={styles.formGroup}>
@@ -286,13 +291,13 @@ const CreateSchedulePage = () => {
             </div>
             <div className={styles.cardBody}>
               <div className={styles.formGroup}>
-                <label>Arrival Date <span className={styles.required}>*</span></label>
-                <input
-                  type="date"
+                <label htmlFor="arrival-date">Arrival Date <span className={styles.required}>*</span></label>
+                <CalendarDatePicker
+                  id="arrival-date"
+                  label="Arrival date"
                   value={formData.arrival_date}
-                  onChange={e => setFormData({ ...formData, arrival_date: e.target.value })}
+                  onChange={value => setFormData(prev => ({ ...prev, arrival_date: value }))}
                   min={formData.departure_date}
-                  required
                 />
               </div>
               <div className={styles.formGroup}>
