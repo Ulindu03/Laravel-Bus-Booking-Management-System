@@ -284,9 +284,100 @@
 @media (max-width: 768px) {
     .dashboardPage {
         flex-direction: column;
+        padding: 20px 16px;
+        gap: 1.5rem;
     }
     
     .sidebar {
         width: 100%;
+        padding: 1.5rem;
+    }
+
+    .navMenu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .navItem {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.75rem 0.5rem;
+    }
+
+    .pageTitle {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
     }
 }
+
+@media (max-width: 540px) {
+    .dashboardPage {
+        padding: 14px 10px;
+    }
+
+    .bookingCard {
+        padding: 1.1rem;
+        border-radius: 14px;
+    }
+
+    .cardHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .refInfo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .route {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cityBlock {
+        align-items: center;
+    }
+
+    .cityBlock:last-child {
+        text-align: center;
+    }
+
+    .routeArrow {
+        transform: rotate(90deg);
+        font-size: 1.25rem;
+    }
+
+    .busDetails {
+        flex-direction: column;
+        gap: 6px;
+        padding: 0;
+        font-size: 0.88rem;
+    }
+
+    .cardFooter {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .amount {
+        text-align: center;
+    }
+
+    .cancelBtn {
+        width: 100%;
+        padding: 0.75rem;
+        text-align: center;
+    }
+}
+
