@@ -1,58 +1,67 @@
 {
-  "training_date": "2026-07-14 22:58:52",
-  "training_samples": 6331,
-  "testing_samples": 1583,
+  "training_date": "2026-10-08 10:52:42",
+  "training_samples": 2879,
+  "testing_samples": 720,
   "best_model": "XGBoost",
+  "best_config": {
+    "n_estimators": 500,
+    "max_depth": 4,
+    "learning_rate": 0.03,
+    "subsample": 0.85,
+    "colsample_bytree": 0.85
+  },
+  "cv_r2_mean": 0.5713,
+  "cv_r2_std": 0.0391,
   "xgboost": {
     "model": "XGBoost",
-    "mae": 0.2134,
-    "rmse": 0.3731,
-    "r2_score": 0.0148,
-    "mape_percent": 15.77
+    "mae": 0.8932,
+    "rmse": 1.2848,
+    "r2_score": 0.5995,
+    "mape_percent": 42.33
   },
   "random_forest": {
     "model": "Random Forest",
-    "mae": 0.2148,
-    "rmse": 0.3704,
-    "r2_score": 0.029,
-    "mape_percent": 15.93
+    "mae": 0.9384,
+    "rmse": 1.3377,
+    "r2_score": 0.5658,
+    "mape_percent": 45.25
   },
   "feature_importance": [
     {
-      "feature": "historical_avg_demand",
-      "importance": 0.17338572442531586
-    },
-    {
-      "feature": "is_weekend",
-      "importance": 0.15153156220912933
-    },
-    {
-      "feature": "bus_type_encoded",
-      "importance": 0.12241268157958984
-    },
-    {
-      "feature": "hour_of_day",
-      "importance": 0.11874851584434509
-    },
-    {
       "feature": "boarding_stop_index",
-      "importance": 0.09727711975574493
+      "importance": 0.4509921967983246
     },
     {
-      "feature": "day_of_week",
-      "importance": 0.09379926323890686
-    },
-    {
-      "feature": "is_month_end",
-      "importance": 0.08754928410053253
+      "feature": "historical_avg_demand",
+      "importance": 0.14784292876720428
     },
     {
       "feature": "route_id",
-      "importance": 0.0827014371752739
+      "importance": 0.1297575980424881
+    },
+    {
+      "feature": "day_of_week",
+      "importance": 0.08624666929244995
+    },
+    {
+      "feature": "hour_of_day",
+      "importance": 0.05441645160317421
+    },
+    {
+      "feature": "hour_bucket",
+      "importance": 0.052428387105464935
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 0.044649720191955566
+    },
+    {
+      "feature": "is_month_end",
+      "importance": 0.018639255315065384
     },
     {
       "feature": "is_holiday",
-      "importance": 0.07259441912174225
+      "importance": 0.01502685435116291
     }
   ]
 }
