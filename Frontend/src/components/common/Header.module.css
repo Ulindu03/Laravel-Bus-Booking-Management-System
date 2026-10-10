@@ -337,10 +337,253 @@
     transform: translateX(100%);
 }
 
-/* ─── Responsive ─── */
+/* ─── Hamburger Button ─── */
+.hamburgerBtn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 40px;
+    padding: 10px 8px;
+    background: rgba(34, 165, 255, 0.08);
+    border: 1px solid rgba(34, 165, 255, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 102;
+    transition: all 0.3s ease;
+}
+
+.hamburgerBtn:hover {
+    background: rgba(34, 165, 255, 0.16);
+    border-color: rgba(34, 165, 255, 0.4);
+}
+
+.hamburgerLine {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #f2f6ff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburgerOpen .hamburgerLine:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    background: #3ec7ff;
+}
+
+.hamburgerOpen .hamburgerLine:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburgerOpen .hamburgerLine:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background: #3ec7ff;
+}
+
+/* ─── Mobile Overlay ─── */
+.mobileOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 20, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 199;
+    animation: fadeInOverlay 0.25s ease-out;
+}
+
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ─── Mobile Drawer ─── */
+.mobileDrawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(340px, 86vw);
+    background: linear-gradient(180deg, #0e152e 0%, #080d1e 100%);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.6);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 16px;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobileDrawerOpen {
+    transform: translateX(0);
+}
+
+.drawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawerBrand {
+    display: flex;
+    flex-direction: column;
+}
+
+.drawerBrandKicker {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.drawerBrandTitle {
+    font-size: 18px;
+    font-weight: 800;
+    color: #f2f6ff;
+}
+
+.drawerCloseBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.drawerCloseBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.drawerNav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.drawerNavLink {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.drawerNavLink:hover {
+    background: rgba(34, 165, 255, 0.1);
+    border-color: rgba(34, 165, 255, 0.25);
+    color: var(--accent-light);
+    transform: translateX(3px);
+}
+
+.drawerNavIcon {
+    font-size: 18px;
+}
+
+.drawerDivider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 4px 0;
+}
+
+.drawerSupport {
+    display: flex;
+    flex-direction: column;
+}
+
+.drawerSupportBadge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: rgba(34, 165, 255, 0.06);
+    border: 1px solid rgba(34, 165, 255, 0.15);
+    position: relative;
+}
+
+.drawerSupportIcon {
+    font-size: 22px;
+    margin-left: 8px;
+}
+
+.drawerAuth {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 12px;
+}
+
+.drawerLoginBtn {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.drawerLoginBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.drawerSignupBtn {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1a8cdb 0%, #22a5ff 50%, #43b8ff 100%);
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 4px 18px rgba(34, 165, 255, 0.3);
+    transition: all 0.2s ease;
+}
+
+.drawerSignupBtn:hover {
+    background: linear-gradient(135deg, #1680cc 0%, #1a8cdb 50%, #22a5ff 100%);
+    box-shadow: 0 6px 24px rgba(34, 165, 255, 0.45);
+}
+
+/* ─── Responsive Breakpoints ─── */
 @media (max-width: 1024px) {
     .navLinks {
         display: none;
+    }
+
+    .hamburgerBtn {
+        display: flex;
     }
 
     .headerInner {
@@ -364,9 +607,15 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
+    /* Hide topbar auth buttons to keep navbar clean, drawer has them */
+    .authButtons {
+        display: none;
+    }
+
     .headerInner {
-        padding: 8px 12px;
+        padding: 8px 14px;
+        gap: 12px;
     }
 
     .logoFrame {
@@ -378,14 +627,17 @@
         font-size: 9px;
     }
 
-    .authButtons {
-        gap: 6px;
+    .brandName {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .brandKicker {
+        display: none;
     }
 
-    .loginBtn,
-    .signupBtn {
-        padding: 7px 12px;
-        font-size: 12px;
-        border-radius: 10px;
+    .brandName {
+        font-size: 18px;
     }
 }

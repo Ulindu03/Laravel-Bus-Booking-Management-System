@@ -72,11 +72,62 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* Table */
 .tableContainer {
   overflow-x: auto;
   max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .searchWrap {
+    width: 100%;
+  }
+  .toolbarRight {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .pagination {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableWrap {
+    border-radius: 12px;
+  }
+
+  .toolbar {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .th,
+  .td {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .pageControls {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .pageNum,
+  .pageBtn {
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+}
+
 
 .table {
   width: 100%;
