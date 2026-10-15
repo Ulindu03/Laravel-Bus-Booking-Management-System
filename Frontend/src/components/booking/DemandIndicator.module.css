@@ -12,6 +12,10 @@
     border-radius: 14px;
     border: 1px solid;
     transition: all 0.3s ease;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .indicator.high {

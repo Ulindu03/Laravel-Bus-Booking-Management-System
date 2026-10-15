@@ -262,25 +262,30 @@
 }
 
 /* Responsive */
+/* Responsive */
 @media (max-width: 768px) {
   .sidebar {
-    width: 76px;
+    width: min(280px, 80vw);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.7);
   }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
   .brandText,
-  .navLabel2,
-  .collapseBtn span {
-    display: none;
+  .navLabel2 {
+    display: flex;
   }
+
   .navItem {
-    justify-content: center;
-    padding: 10px 0;
+    justify-content: flex-start;
+    padding: 10px 14px;
   }
+
   .brand {
-    justify-content: center;
-    padding: 20px 0;
-  }
-  .collapseBtn {
-    justify-content: center;
-    padding: 10px 0;
+    justify-content: flex-start;
+    padding: 20px 18px;
   }
 }
+

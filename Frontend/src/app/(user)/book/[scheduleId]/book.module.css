@@ -4,11 +4,17 @@
     padding: 2rem;
     font-family: 'Inter', sans-serif;
     color: #fff;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .header {
@@ -21,6 +27,8 @@
     margin-bottom: 2.5rem;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .header::before {
@@ -44,16 +52,21 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .route {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
     font-size: 1.5rem;
     font-weight: 700;
     color: #38bdf8;
     text-transform: capitalize;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .arrow {
@@ -64,10 +77,12 @@
 .meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.25rem 2rem;
     color: rgba(255,255,255,0.7);
     font-weight: 500;
     font-size: 1.05rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .meta span {
@@ -81,6 +96,10 @@
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
     align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .seatSelection, .bookingSidebar {
@@ -90,6 +109,10 @@
     padding: 2.5rem;
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .seatSelection h2, .bookingSidebar h2 {
@@ -632,4 +655,317 @@
     font-weight: 500;
     margin-top: 1rem;
 }
+
+/* ─── Responsive Breakpoints ─── */
+@media (max-width: 960px) {
+    .layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        align-items: center;
+        gap: 2rem;
+        box-sizing: border-box;
+    }
+
+    .seatSelection,
+    .bookingSidebar {
+        padding: 2rem;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    .bookPage {
+        padding: 16px 12px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .header {
+        padding: 18px 14px;
+        border-radius: 16px;
+        margin-bottom: 1.25rem;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .header h1 {
+        font-size: 1.45rem;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.3px;
+        text-align: center;
+    }
+
+    .tripDetails {
+        gap: 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .route {
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .meta {
+        justify-content: center;
+        gap: 0.5rem 1rem;
+        font-size: 0.88rem;
+        width: 100%;
+    }
+
+    .meta span {
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .segmentBadge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.75rem;
+        max-width: 100%;
+        word-break: break-word;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        align-items: center;
+        gap: 1.5rem;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .seatSelection,
+    .bookingSidebar {
+        padding: 18px 12px;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .seatSelection h2,
+    .bookingSidebar h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.85rem;
+        text-align: center;
+    }
+
+    .passengerForms {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        gap: 1rem;
+    }
+
+    .passengerCard {
+        padding: 1rem;
+        border-radius: 14px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .inputGroup {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .inputGroup input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .summaryCard {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 1.25rem 1rem;
+        margin-top: 1.25rem;
+        border-radius: 14px;
+    }
+
+    .summaryCard h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .summaryRow {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .totalPrice {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+
+    .submitBtn {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.95rem 1rem;
+        font-size: 1.05rem;
+        margin-top: 1.25rem;
+    }
+
+    .inlineSuccessCard {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.25rem 1rem;
+        border-radius: 16px;
+    }
+
+    .inlineSuccessHeader {
+        font-size: 1.25rem;
+    }
+
+    .ticketSummaryGrid {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.85rem;
+        font-size: 0.88rem;
+    }
+
+    .ticketRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .refPill {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.88rem;
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .emptyState {
+        padding: 2.5rem 1rem;
+        font-size: 0.95rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .modalOverlay {
+        padding: 12px;
+    }
+
+    .successModalCard {
+        max-height: 90vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 24px 16px;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    .successBadgeWrapper {
+        width: 56px;
+        height: 56px;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .successModalTitle {
+        font-size: 1.4rem;
+    }
+
+    .modalActionBtns {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .modalPrimaryBtn,
+    .modalSecondaryBtn {
+        width: 100%;
+        padding: 0.85rem;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .bookPage {
+        padding: 14px 8px;
+    }
+
+    .header {
+        padding: 16px 10px;
+    }
+
+    .header h1 {
+        font-size: 1.35rem;
+    }
+
+    .seatSelection,
+    .bookingSidebar {
+        padding: 14px 8px;
+    }
+
+    .passengerCard {
+        padding: 0.9rem;
+    }
+
+    .summaryCard {
+        padding: 1rem 0.85rem;
+    }
+}
+
+.loading, .error {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.error {
+    color: #f87171;
+}
+
 
