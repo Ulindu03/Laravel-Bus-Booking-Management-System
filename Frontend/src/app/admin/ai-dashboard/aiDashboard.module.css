@@ -77,11 +77,19 @@
     padding: 4px;
     margin-bottom: 24px;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
 }
 
 .tab {
     flex: 1;
-    padding: 10px 20px;
+    min-width: 120px;
+    padding: 10px 16px;
     background: transparent;
     border: none;
     border-radius: 10px;
@@ -91,6 +99,8 @@
     cursor: pointer;
     transition: all 0.2s;
     font-family: inherit;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .tab:hover {
@@ -459,3 +469,21 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .statsGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 16px 14px;
+        border-radius: 14px;
+    }
+
+    .refreshBtn {
+        width: 100%;
+        text-align: center;
+    }
+}
+

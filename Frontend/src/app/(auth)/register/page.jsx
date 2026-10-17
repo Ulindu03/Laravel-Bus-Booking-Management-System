@@ -25,6 +25,11 @@ export default function Register() {
             return;
         }
 
+        if (password.length < 8) {
+            setError("Password must be at least 8 characters long");
+            return;
+        }
+
         if (password !== confirmPassword) {
             setError("Passwords do not match");
             return;
@@ -33,9 +38,11 @@ export default function Register() {
         try {
             setLoading(true);
             await register(name, email, password, confirmPassword);
-            router.push("/login");
+            router.push("/dashboard");
         } catch (err) {
-            setError(err.response?.data?.message || "Registration failed. Email may already be in use. Please try again.");
+            const apiErrors = err.response?.data?.errors;
+            const firstError = apiErrors ? Object.values(apiErrors).flat()[0] : null;
+            setError(firstError || err.response?.data?.message || "Registration failed. Please check your details and try again.");
         } finally {
             setLoading(false);
         }
@@ -115,7 +122,7 @@ export default function Register() {
                     </form>
 
                     <p className="login-link">
-                        Already registered? <Link href="/login">Go to Login</Link>
+                        Already registered? <Link href="/auth/login">Go to Login</Link>
                     </p>
                 </article>
             </section>

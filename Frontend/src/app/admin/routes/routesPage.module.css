@@ -1,6 +1,5 @@
 .page { display: flex; flex-direction: column; gap: 20px; min-width: 0; max-width: 100%; }
-.statsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; min-width: 0; }
-@media (max-width: 800px) { .statsGrid { grid-template-columns: 1fr; } }
+.statsGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; min-width: 0; }
 
 /* Badges */
 .badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: capitalize; }
@@ -40,7 +39,7 @@
 .closeBtn { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.15s; box-sizing: border-box; }
 .closeBtn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
-.drawerBody { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 24px; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; }
+.drawerBody { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 24px; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; -webkit-overflow-scrolling: touch; }
 
 .sectionCard { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
 .sectionTitle { font-size: 12px; font-weight: 700; color: #06b6d4; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 4px 0; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px;}
@@ -73,17 +72,72 @@
 .removeStopBtn svg { font-size: 20px !important; }
 
 .drawerActions { display: flex; gap: 12px; justify-content: flex-end; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: auto; padding-bottom: 90px; }
-.cancelBtn { padding: 12px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+.cancelBtn { padding: 12px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.15s; text-align: center; }
 .cancelBtn:hover { background: rgba(255,255,255,0.1); color: #fff; }
-.saveBtn { padding: 12px 28px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); border: none; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+.saveBtn { padding: 12px 28px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); border: none; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; text-align: center; }
 .saveBtn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(6,182,212,0.3); }
 .saveBtn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
 /* Modal */
-.modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 420px; max-width: 90vw; background: #1f2937; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px; z-index: 201; animation: modalPop 0.2s ease; }
+.modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 420px; max-width: calc(100vw - 32px); max-height: 90vh; overflow-y: auto; background: #1f2937; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; z-index: 201; animation: modalPop 0.2s ease; box-sizing: border-box; -webkit-overflow-scrolling: touch; }
 @keyframes modalPop { from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
 .modal h3 { font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 8px; }
 .modal p { font-size: 14px; color: rgba(255,255,255,0.6); margin: 0 0 20px; line-height: 1.5; }
 .modalActions { display: flex; gap: 10px; justify-content: flex-end; }
 .deleteBtnLg { padding: 10px 24px; background: linear-gradient(135deg, #ef4444, #dc2626); border: none; border-radius: 8px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; }
 .deleteBtnLg:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(239,68,68,0.3); }
+
+/* Responsive Media Queries */
+@media (max-width: 640px) {
+  .drawer {
+    width: 100vw;
+  }
+
+  .drawerHeader {
+    padding: 16px 18px;
+  }
+
+  .drawerBody {
+    padding: 18px 16px;
+    gap: 16px;
+  }
+
+  .sectionCard {
+    padding: 16px 14px;
+  }
+
+  .formRow {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stopRow {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .stopRow input,
+  .stopRow select {
+    min-width: 130px;
+  }
+
+  .drawerActions {
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+
+  .cancelBtn,
+  .saveBtn {
+    width: 100%;
+  }
+
+  .modalActions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modalActions button {
+    width: 100%;
+  }
+}
+

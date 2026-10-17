@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -8,6 +12,9 @@ html, body {
     color: #f2f6ff;
     color-scheme: dark !important;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
 }
 
 body {
@@ -18,13 +25,10 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-img, svg, video {
+img, svg, video, canvas {
     display: block;
     max-width: 100%;
+    height: auto;
 }
 
 button, input, textarea, select {

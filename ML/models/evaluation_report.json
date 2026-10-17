@@ -1,29 +1,29 @@
 {
-  "evaluation_date": "2026-07-20 19:50:01",
-  "test_samples": 1583,
+  "evaluation_date": "2026-10-08 10:57:57",
+  "test_samples": 720,
   "demand_prediction": {
     "xgboost": {
-      "mae": 0.2134,
-      "rmse": 0.3731,
-      "r2": 0.0148,
-      "mape": 15.77
+      "mae": 0.8932,
+      "rmse": 1.2848,
+      "r2": 0.5995,
+      "mape": 42.33
     },
     "random_forest": {
-      "mae": 0.2148,
-      "rmse": 0.3704,
-      "r2": 0.029,
-      "mape": 15.93
+      "mae": 0.9384,
+      "rmse": 1.3377,
+      "r2": 0.5658,
+      "mape": 45.25
     },
     "targets_met": {
       "mae_under_3": true,
       "rmse_under_4": true,
       "r2_over_075": false,
-      "mape_under_20": true
+      "mape_under_20": false
     }
   },
   "clustering": {
     "n_clusters": 4,
-    "silhouette_score": 0.19620155574568862,
+    "silhouette_score": 0.19026334823331484,
     "cluster_names": {
       "0": "Mixed Pattern 1",
       "1": "Mixed Pattern 2",

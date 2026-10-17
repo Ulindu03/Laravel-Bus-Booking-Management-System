@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import CalendarDatePicker from '@/components/ui/CalendarDatePicker';
 import styles from './SearchBooking.module.css';
 
 const sriLankaRoutes = [
@@ -79,6 +80,8 @@ const SearchBooking = () => {
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
     const [date, setDate] = useState('');
+    const today = new Date();
+    const minimumDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -123,7 +126,7 @@ const SearchBooking = () => {
 
                         <div className={styles.formGroup}>
                             <label htmlFor="travel-date">Date</label>
-                            <input id="travel-date" type="date" value={date} onChange={(e) => setDate(e.target.value)} required min={new Date().toISOString().split('T')[0]} />
+                            <CalendarDatePicker id="travel-date" label="Travel date" value={date} onChange={setDate} min={minimumDate} />
                         </div>
 
                         <button type="submit" className={styles.searchBtn}>

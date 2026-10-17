@@ -22,8 +22,8 @@ export const aiService = {
      */
     streamMessage: (message, { onChunk, onDone, onError }) => {
         const controller = new AbortController();
-        const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL;
-        const token = localStorage.getItem('token');
+        const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000';
+        const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
         fetch(`${baseURL}/api/ai/chat/stream`, {
             method: 'POST',

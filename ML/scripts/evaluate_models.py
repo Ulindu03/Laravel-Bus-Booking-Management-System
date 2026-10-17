@@ -82,8 +82,7 @@ else:
 # Feature columns
 FEATURE_COLUMNS = [
     'route_id', 'boarding_stop_index', 'day_of_week', 'hour_of_day',
-    'is_weekend', 'is_holiday', 'is_month_end', 'historical_avg_demand',
-    'bus_type_encoded',
+    'hour_bucket', 'is_weekend', 'is_holiday', 'is_month_end', 'historical_avg_demand'
 ]
 
 X_test = test_df[FEATURE_COLUMNS]
