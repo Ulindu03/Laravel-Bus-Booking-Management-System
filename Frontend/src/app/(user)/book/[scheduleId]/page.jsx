@@ -5,6 +5,9 @@ import { useRouter, useParams, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/app/context/AuthContext';
 import { bookingService } from '@/app/api/bookingService';
 import SmartSeatMap from '@/components/booking/SmartSeatMap';
+import SearchableSelect from '@/components/ui/SearchableSelect';
+import { aiService } from '@/app/api/aiService';
+import DemandIndicator from '@/components/booking/DemandIndicator';
 import styles from './book.module.css';
 
 function BookScheduleContent() {
@@ -31,6 +34,7 @@ function BookScheduleContent() {
     const [contactEmail, setContactEmail] = useState('');
     const [successModalData, setSuccessModalData] = useState(null);
     const [formError, setFormError] = useState('');
+    const [routePredictions, setRoutePredictions] = useState(null);
 
     // No auth redirect on page load — anyone can view seats
     // Auth is checked only when confirming the booking
@@ -79,6 +83,22 @@ function BookScheduleContent() {
                         boardingStop: initialBoarding || '',
                         alightingStop: initialAlighting || '',
                     }));
+
+                    // Fetch per-segment predictions for this route (use departure hour)
+                    try {
+                        const dep = res.data.departure_time ? new Date(res.data.departure_time) : new Date();
+                        const hour = dep.getHours();
+                        const date = dep.toISOString().split('T')[0];
+                        const routeId = res.data.route?.id;
+                        if (routeId) {
+                            const predRes = await aiService.getRouteSegmentPredictions(routeId, date, hour);
+                            if (predRes?.success) {
+                                setRoutePredictions(predRes.data.predictions || null);
+                            }
+                        }
+                    } catch (e) {
+                        // Silent — predictions are optional
+                    }
                 } else {
                     setError('Failed to load schedule details.');
                 }
@@ -278,21 +298,55 @@ function BookScheduleContent() {
                 <div className={styles.header}>
                     <h1>Complete Your Booking</h1>
                     <div className={styles.tripDetails}>
-                        <div className={styles.route}>
-                            <span className={styles.city}>{boardingStop}</span>
-                            <span className={styles.arrow}>➔</span>
-                            <span className={styles.city}>{alightingStop}</span>
+                        <div style={{ display: 'flex', gap: '12px', alignItems: 'center', width: '100%' }}>
+                            <div style={{ flex: 1 }}>
+                                <SearchableSelect
+                                    value={boardingStop}
+                                    onChange={(v) => setSegmentInfo(prev => ({ ...prev, boardingStop: v }))}
+                                    options={fullStops}
+                                    placeholder="Boarding stop"
+                                />
+                            </div>
+
+                            <div style={{ fontSize: '18px', color: 'var(--accent)', fontWeight: 700 }}>→</div>
+
+                            <div style={{ flex: 1 }}>
+                                <SearchableSelect
+                                    value={alightingStop}
+                                    onChange={(v) => setSegmentInfo(prev => ({ ...prev, alightingStop: v }))}
+                                    options={fullStops.filter(s => s !== boardingStop)}
+                                    placeholder="Alighting stop"
+                                />
+                            </div>
+
+                            <div style={{ minWidth: 140, textAlign: 'right' }}>
+                                <div className={styles.meta}>
+                                    <div>🚌 {schedule.bus.name} ({schedule.bus.type.replace('_', ' ')})</div>
+                                    <div>🕒 {new Date(schedule.departure_time).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}</div>
+                                    <div>💵 Rs. {pricePerSeat.toFixed(2)} / seat</div>
+                                </div>
+                            </div>
                         </div>
-                        <div className={styles.meta}>
-                            <span>🚌 {schedule.bus.name} ({schedule.bus.type.replace('_', ' ')})</span>
-                            <span>🕒 {new Date(schedule.departure_time).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}</span>
-                            <span>💵 Rs. {pricePerSeat.toFixed(2)} / seat</span>
-                        </div>
+
                         {isSegmentBooking && (
                             <div className={styles.segmentBadge}>
                                 🧩 Segment Booking — {boardingStop} to {alightingStop}
                             </div>
                         )}
+
+                        {/* Live demand badge for selected boarding segment */}
+                        {routePredictions && fullStops.length >= 2 && (() => {
+                            const boardIdx = fullStops.findIndex(s => s.toLowerCase() === (boardingStop || '').toLowerCase());
+                            if (boardIdx === -1) return null;
+                            const selectedPrediction = routePredictions[boardIdx];
+                            if (!selectedPrediction) return null;
+                            const level = selectedPrediction.demand_level || selectedPrediction.demandLevel || 'low';
+                            return (
+                                <div style={{ marginTop: '8px' }}>
+                                    <DemandIndicator level={level} compact />
+                                </div>
+                            );
+                        })()}
                     </div>
                 </div>
 

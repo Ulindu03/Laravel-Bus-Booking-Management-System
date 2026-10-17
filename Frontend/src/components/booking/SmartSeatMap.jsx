@@ -318,7 +318,7 @@ const SmartSeatMap = ({
                                         `}
                                         title={seatNum}
                                     >
-                                        {seatNum}
+                                        <span className={styles.seatLabel}>{seatNum}</span>
                                     </button>
                                 );
                             })}

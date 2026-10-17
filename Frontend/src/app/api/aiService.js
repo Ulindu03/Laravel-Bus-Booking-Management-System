@@ -128,4 +128,12 @@ export const aiService = {
         const res = await api.get('/admin/ai/health');
         return res.data;
     },
+    
+    /** Public: get per-segment predictions for a route (used by booking UI) */
+    getRouteSegmentPredictions: async (routeId, date, hour) => {
+        const res = await api.get(`/ai/predict/route/${routeId}`, {
+            params: { date, hour },
+        });
+        return res.data;
+    },
 };
