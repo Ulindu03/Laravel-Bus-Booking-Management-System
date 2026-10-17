@@ -16,7 +16,7 @@ const raleway = Raleway({
 export default function RootLayout({ children }) {
     return (
         <html lang="en" style={{ colorScheme: 'dark' }}>
-            <body className={raleway.className}>
+            <body className={`${raleway.className} appShell`}>
                 <Preloader />
                 <AuthProvider>
                     <Header />

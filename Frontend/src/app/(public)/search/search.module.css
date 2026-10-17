@@ -431,3 +431,66 @@
     0%, 100% { opacity: 0.6; }
     50% { opacity: 1; }
 }
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+    .searchPage {
+        padding: 1rem;
+        min-height: calc(100vh - 64px);
+    }
+
+    .header {
+        padding: 2rem 1rem;
+        border-radius: 14px;
+    }
+
+    .header::before {
+        width: 360px; height: 360px;
+        top: -60%;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .resultsContainer {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .scheduleList {
+        gap: 1rem;
+    }
+
+    .scheduleCard {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        border-radius: 12px;
+    }
+
+    .busInfo h3 { font-size: 1.1rem; }
+    .time { font-size: 1.2rem; }
+    .durationText { font-size: 0.75rem; }
+    .price { font-size: 1.2rem; }
+
+    .priceBook {
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        border-left: none;
+        padding-left: 0;
+        align-items: center;
+    }
+
+    .bookBtn {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .noResults { padding: 3rem 1rem; }
+}

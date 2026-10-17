@@ -158,4 +158,33 @@ class PredictionController extends Controller
             'data' => $data,
         ]);
     }
+
+    /**
+     * Public demand prediction for all segments of a route.
+     * GET /api/ai/predict/route/{route_id}?date=YYYY-MM-DD&hour=H
+     * Returns per-segment predicted demand and demand_level.
+     */
+    public function publicDemandPrediction(Request $request, int $routeId): JsonResponse
+    {
+        $request->validate([
+            'date' => 'required|date|after_or_equal:today',
+            'hour' => 'required|integer|min:0|max:23',
+        ]);
+
+        $predictions = $this->demandPredictor->predictAllSegments(
+            $routeId,
+            $request->input('date'),
+            (int) $request->input('hour')
+        );
+
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'route_id' => $routeId,
+                'date' => $request->input('date'),
+                'hour' => (int) $request->input('hour'),
+                'predictions' => $predictions,
+            ],
+        ]);
+    }
 }

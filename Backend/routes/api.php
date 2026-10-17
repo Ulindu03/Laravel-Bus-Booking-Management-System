@@ -82,6 +82,10 @@ Route::prefix('ai')->group(function () {
 
     // Segment availability — used by frontend seat map
     Route::get('/segments/{schedule_id}', [PredictionController::class, 'segmentAvailability']);
+
+    // Public route-level demand predictions (per-segment)
+    // GET /api/ai/predict/route/{route_id}?date=YYYY-MM-DD&hour=H
+    Route::get('/predict/route/{route_id}', [PredictionController::class, 'publicDemandPrediction']);
 });
 
 // Authenticated AI routes
