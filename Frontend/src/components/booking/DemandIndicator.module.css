@@ -11,7 +11,11 @@
     padding: 12px 16px;
     border-radius: 14px;
     border: 1px solid;
+<<<<<<< HEAD
     transition: all 0.25s ease;
+=======
+    transition: all 0.3s ease;
+>>>>>>> 28b2e2f (Fix merge conflict)
     width: 100%;
     max-width: 340px;
     margin: 0 auto;
